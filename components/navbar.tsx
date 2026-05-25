@@ -14,7 +14,7 @@ export function Navbar() {
     >
       <div className="mx-auto flex max-w-7xl items-center justify-between">
         <Link href="/" className="font-display font-bold text-2xl tracking-wide text-white">
-          HY<span className="text-accent">.</span>
+          Hariom Yadav<span className="text-accent">.</span>
         </Link>
         <nav className="hidden md:flex gap-10">
           {links.map((link) => (

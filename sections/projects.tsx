@@ -10,15 +10,22 @@ const projects = [
     demoLink: "https://axiora-khaki.vercel.app/",
     githubLink: "https://github.com/Hariom1729/Axiora"
   },
-  { name: "Customer Retention Dashboard", tech: "React.js, Node.js, Express.js, MongoDB", desc: "Built a full-stack dashboard for customer retention analysis with REST APIs, JWT auth, responsive analytics, and Excel to JSON conversion." },
-  { name: "Customer Churn Prediction System", tech: "Python, Machine Learning", desc: "Built an ML model to predict churn with preprocessing, feature engineering, and actionable business insights." },
-  { name: "Smart Tourism Platform", tech: "React.js, Node.js", desc: "Tourism platform with itinerary recommendations, multilingual support, geo-location integration, and interactive dashboards." },
-  { name: "HaiiGPT Text Generation Web App", tech: "HTML5, CSS3, JavaScript", desc: "Responsive AI text generation web app with optimized frontend performance and efficient DOM manipulation." }
+  { name: "Customer Retention Dashboard", tech: "React.js, Node.js, Express.js, MongoDB", desc: "Built a full-stack dashboard for customer retention analysis with REST APIs, JWT auth, responsive analytics, and Excel to JSON conversion.", githubLink: "https://github.com/Hariom1729" },
+  { name: "Customer Churn Prediction System", tech: "Python, Machine Learning", desc: "Built an ML model to predict churn with preprocessing, feature engineering, and actionable business insights.", githubLink: "https://github.com/Hariom1729" },
+  { name: "Smart Tourism Platform", tech: "React.js, Node.js", desc: "Tourism platform with itinerary recommendations, multilingual support, geo-location integration, and interactive dashboards.", githubLink: "https://github.com/Hariom1729" },
+  { name: "HaiiGPT Text Generation Web App", tech: "HTML5, CSS3, JavaScript", desc: "Responsive AI text generation web app with optimized frontend performance and efficient DOM manipulation.", githubLink: "https://github.com/Hariom1729" }
 ];
 
 export function ProjectsSection() {
   return (
-    <section id="projects" className="py-24">
+    <motion.section 
+      id="projects" 
+      className="py-24"
+      initial={{ opacity: 0, y: 50 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      viewport={{ once: true, margin: "-100px" }}
+      transition={{ duration: 0.8, ease: "easeOut" }}
+    >
       <div className="mx-auto max-w-7xl px-6">
         <div className="flex flex-col md:flex-row md:items-end justify-between gap-6 mb-20">
           <motion.h2 
@@ -66,17 +73,15 @@ export function ProjectsSection() {
                   <a href={project.demoLink || "#contact"} target={project.demoLink ? "_blank" : undefined} rel={project.demoLink ? "noopener noreferrer" : undefined} className="text-sm font-semibold tracking-widest uppercase hover:text-accent transition-colors">
                     Visit Now →
                   </a>
-                  {project.githubLink && (
-                    <a href={project.githubLink} target="_blank" rel="noopener noreferrer" className="text-sm font-semibold tracking-widest uppercase hover:text-accent transition-colors">
-                      GitHub →
-                    </a>
-                  )}
+                  <a href={project.githubLink} target="_blank" rel="noopener noreferrer" className="text-sm font-semibold tracking-widest uppercase hover:text-accent transition-colors">
+                    GitHub →
+                  </a>
                 </div>
               </div>
             </motion.article>
           ))}
         </div>
       </div>
-    </section>
+    </motion.section>
   );
 }

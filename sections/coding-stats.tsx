@@ -41,7 +41,14 @@ const profiles = [
 
 export function CodingStatsSection() {
   return (
-    <section id="stats" className="py-24">
+    <motion.section 
+      id="stats" 
+      className="py-24"
+      initial={{ opacity: 0, y: 50 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      viewport={{ once: true, margin: "-100px" }}
+      transition={{ duration: 0.8, ease: "easeOut" }}
+    >
       <div className="mx-auto max-w-7xl px-6">
         <motion.div
           initial={{ opacity: 0, y: 30 }}
@@ -104,6 +111,6 @@ export function CodingStatsSection() {
           ))}
         </div>
       </div>
-    </section>
+    </motion.section>
   );
 }
