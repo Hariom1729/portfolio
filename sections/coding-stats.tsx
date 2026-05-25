@@ -39,6 +39,8 @@ const profiles = [
   }
 ];
 
+import GitHubCalendar from 'react-github-calendar';
+
 export function CodingStatsSection() {
   return (
     <motion.section 
@@ -110,6 +112,27 @@ export function CodingStatsSection() {
             </motion.div>
           ))}
         </div>
+
+        <motion.div
+          initial={{ opacity: 0, y: 30 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          className="mt-20 bg-white/5 rounded-3xl p-8 md:p-12 border border-white/10 flex flex-col items-center"
+        >
+          <h3 className="text-2xl font-display font-medium text-white mb-10 w-full text-center">GitHub Contributions</h3>
+          <div className="w-full overflow-x-auto pb-4 flex justify-center scrollbar-hide" style={{ color: '#fff' }}>
+            <GitHubCalendar 
+              username="Hariom1729" 
+              colorScheme="dark"
+              blockSize={15}
+              blockMargin={5}
+              fontSize={14}
+              theme={{
+                dark: ['#161b22', '#0e4429', '#006d32', '#26a641', '#39d353']
+              }}
+            />
+          </div>
+        </motion.div>
       </div>
     </motion.section>
   );
