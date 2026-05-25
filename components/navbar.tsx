@@ -2,7 +2,7 @@
 import Link from "next/link";
 import { motion } from "framer-motion";
 
-const links = ["About", "Projects", "Contact"];
+const links = ["About", "Stats", "Projects", "Contact"];
 
 export function Navbar() {
   return (
