@@ -9,10 +9,24 @@ export function ContactSection() {
   async function onSubmit(e: React.FormEvent<HTMLFormElement>) {
     e.preventDefault();
     const form = e.currentTarget;
+    const formData = new FormData(form);
+    const name = formData.get("name") as string;
+    const email = formData.get("email") as string;
+    const message = formData.get("message") as string;
+
     setLoading(true);
-    await new Promise((r) => setTimeout(r, 900));
+    // Simulate brief loading for UI feedback
+    await new Promise((r) => setTimeout(r, 400));
     setLoading(false);
-    window.alert("Message queued successfully");
+
+    // Construct mailto URL
+    const subject = encodeURIComponent(`Portfolio Contact from ${name}`);
+    const body = encodeURIComponent(`${message}\n\n---\nSender: ${name}\nEmail: ${email}`);
+    const mailtoLink = `mailto:${siteConfig.social.email}?subject=${subject}&body=${body}`;
+
+    // Open mail client
+    window.location.href = mailtoLink;
+    
     form.reset();
   }
 
