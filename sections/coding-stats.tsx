@@ -6,6 +6,14 @@ const profiles = [
     platform: "LeetCode",
     username: "hariom_ydv",
     solved: "127",
+    rating: "1,595",
+    ratingLabel: "Contest Rating",
+    ranking: "210,183",
+    breakdown: {
+      easy: 76,
+      medium: 40,
+      hard: 11
+    },
     color: "text-[#FFA116]",
     borderColor: "border-[#FFA116]/20",
     bgColor: "bg-[#FFA116]/5",
@@ -15,6 +23,15 @@ const profiles = [
     platform: "GeeksforGeeks",
     username: "hariom_ydv",
     solved: "218",
+    rating: "601",
+    ratingLabel: "Coding Score",
+    ranking: "4",
+    rankingLabel: "Institute Rank",
+    breakdown: {
+      easy: 135,
+      medium: 75,
+      hard: 8
+    },
     color: "text-[#2f8D46]",
     borderColor: "border-[#2f8D46]/20",
     bgColor: "bg-[#2f8D46]/5",
@@ -38,7 +55,7 @@ export function CodingStatsSection() {
           </p>
         </motion.div>
 
-        <div className="grid md:grid-cols-2 gap-8">
+        <div className="grid lg:grid-cols-2 gap-8">
           {profiles.map((profile, i) => (
             <motion.div
               key={profile.platform}
@@ -50,23 +67,37 @@ export function CodingStatsSection() {
             >
               <div className={`p-8 md:w-2/5 flex flex-col justify-between border-b md:border-b-0 md:border-r ${profile.borderColor} ${profile.bgColor}`}>
                 <div>
-                  <p className={`text-xs font-bold tracking-widest uppercase mb-1 ${profile.color}`}>Platform</p>
-                  <h3 className="text-3xl font-display font-bold text-white">{profile.platform}</h3>
-                  <p className="text-muted mt-2 text-sm">{profile.username}</p>
+                  <p className={`text-xs font-bold tracking-widest uppercase mb-1 ${profile.color}`}>{profile.platform}</p>
+                  <h3 className="text-4xl font-display font-bold text-white mb-2">{profile.solved}</h3>
+                  <p className="text-muted text-sm uppercase tracking-widest">Solved</p>
                 </div>
-                <div className="mt-8">
-                  <a href={profile.link} target="_blank" rel="noreferrer" className="inline-flex items-center justify-center w-full rounded-full bg-white/10 hover:bg-white/20 transition-colors py-3 text-sm font-semibold uppercase tracking-widest text-white">
+                <div className="mt-12 space-y-4">
+                  <div>
+                    <p className="text-xs uppercase tracking-widest text-muted">{profile.ratingLabel}</p>
+                    <p className="text-xl font-medium text-white">{profile.rating}</p>
+                  </div>
+                  <div>
+                    <p className="text-xs uppercase tracking-widest text-muted">{profile.rankingLabel || 'Global Ranking'}</p>
+                    <p className="text-xl font-medium text-white">{profile.ranking}</p>
+                  </div>
+                  <a href={profile.link} target="_blank" rel="noreferrer" className="mt-4 inline-flex items-center justify-center w-full rounded-full bg-white/10 hover:bg-white/20 transition-colors py-3 text-xs font-semibold uppercase tracking-widest text-white">
                     View Profile ↗
                   </a>
                 </div>
               </div>
-              <div className="p-8 md:w-3/5 flex flex-col justify-center">
-                <div className="bg-white/5 rounded-2xl p-6 border border-white/5">
-                  <p className="text-xs uppercase tracking-widest text-muted mb-2">Total Problems Solved</p>
-                  <div className="flex items-end gap-3">
-                    <span className="text-6xl font-display font-bold text-white leading-none">{profile.solved}</span>
-                    <span className="text-accent mb-1">🔥</span>
-                  </div>
+              
+              <div className="p-8 md:w-3/5 flex flex-col justify-center gap-4">
+                <div className="bg-white/5 rounded-2xl p-5 border border-white/5 flex justify-between items-center">
+                  <span className="text-sm font-semibold tracking-widest uppercase text-[#00b8a3]">Easy</span>
+                  <span className="text-2xl font-display font-bold text-white">{profile.breakdown.easy}</span>
+                </div>
+                <div className="bg-white/5 rounded-2xl p-5 border border-white/5 flex justify-between items-center">
+                  <span className="text-sm font-semibold tracking-widest uppercase text-[#ffc01e]">Medium</span>
+                  <span className="text-2xl font-display font-bold text-white">{profile.breakdown.medium}</span>
+                </div>
+                <div className="bg-white/5 rounded-2xl p-5 border border-white/5 flex justify-between items-center">
+                  <span className="text-sm font-semibold tracking-widest uppercase text-[#ff375f]">Hard</span>
+                  <span className="text-2xl font-display font-bold text-white">{profile.breakdown.hard}</span>
                 </div>
               </div>
             </motion.div>
