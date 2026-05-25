@@ -2,7 +2,21 @@
 import { motion } from "framer-motion";
 import { Server, Bot, Zap, Network, Cloud } from "lucide-react";
 
-const skillsData = [
+type SkillItem = {
+  name: string;
+  icon?: string;
+  lucide?: React.ElementType;
+};
+
+type SkillCategory = {
+  category: string;
+  skills: SkillItem[];
+  color: string;
+  bgColor: string;
+  borderColor: string;
+};
+
+const skillsData: SkillCategory[] = [
   {
     category: "Frontend",
     skills: [
