@@ -44,8 +44,11 @@ const initialProfiles = [
 
 export function CodingStatsSection() {
   const [profiles, setProfiles] = useState(initialProfiles);
+  const [mounted, setMounted] = useState(false);
 
   useEffect(() => {
+    setMounted(true);
+    
     async function fetchStats() {
       try {
         const res = await fetch('/api/stats');
@@ -167,17 +170,19 @@ export function CodingStatsSection() {
           className="mt-20 bg-white/5 rounded-3xl p-8 md:p-12 border border-white/10 flex flex-col items-center"
         >
           <h3 className="text-2xl font-display font-medium text-white mb-10 w-full text-center">GitHub Contributions</h3>
-          <div className="w-full overflow-x-auto pb-4 flex justify-center scrollbar-hide" style={{ color: '#fff' }}>
-            <GitHubCalendar 
-              username="Hariom1729" 
-              colorScheme="dark"
-              blockSize={15}
-              blockMargin={5}
-              fontSize={14}
-              theme={{
-                dark: ['#161b22', '#0e4429', '#006d32', '#26a641', '#39d353']
-              }}
-            />
+          <div className="w-full overflow-x-auto pb-4 flex justify-center scrollbar-hide min-h-[150px]" style={{ color: '#fff' }}>
+            {mounted && (
+              <GitHubCalendar 
+                username="Hariom1729" 
+                colorScheme="dark"
+                blockSize={15}
+                blockMargin={5}
+                fontSize={14}
+                theme={{
+                  dark: ['#161b22', '#0e4429', '#006d32', '#26a641', '#39d353']
+                }}
+              />
+            )}
           </div>
         </motion.div>
       </div>
