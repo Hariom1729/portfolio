@@ -1,7 +1,9 @@
 "use client";
 import { motion } from "framer-motion";
+import { useState, useEffect } from "react";
+import { GitHubCalendar } from 'react-github-calendar';
 
-const profiles = [
+const initialProfiles = [
   {
     platform: "LeetCode",
     username: "hariom_ydv",
@@ -9,39 +11,81 @@ const profiles = [
     rating: "1,595",
     ratingLabel: "Contest Rating",
     ranking: "210,183",
+    rankingLabel: "Global Ranking",
+    color: "text-[#FFA116]",
+    borderColor: "border-[#FFA116]/20",
+    bgColor: "bg-[#FFA116]/5",
+    link: "https://leetcode.com/u/hariom_ydv/",
     breakdown: {
       easy: 76,
       medium: 40,
       hard: 11
-    },
-    color: "text-[#FFA116]",
-    borderColor: "border-[#FFA116]/20",
-    bgColor: "bg-[#FFA116]/5",
-    link: "https://leetcode.com/u/hariom_ydv/"
+    }
   },
   {
-    platform: "GeeksforGeeks",
+    platform: "GeeksForGeeks",
     username: "hariom_ydv",
     solved: "218",
     rating: "601",
     ratingLabel: "Coding Score",
     ranking: "4",
     rankingLabel: "Institute Rank",
+    color: "text-[#2F8D46]",
+    borderColor: "border-[#2F8D46]/20",
+    bgColor: "bg-[#2F8D46]/5",
+    link: "https://www.geeksforgeeks.org/profile/hariom_ydv",
     breakdown: {
       easy: 135,
       medium: 75,
       hard: 8
-    },
-    color: "text-[#2f8D46]",
-    borderColor: "border-[#2f8D46]/20",
-    bgColor: "bg-[#2f8D46]/5",
-    link: "https://www.geeksforgeeks.org/profile/hariom_ydv"
+    }
   }
 ];
 
-import { GitHubCalendar } from 'react-github-calendar';
-
 export function CodingStatsSection() {
+  const [profiles, setProfiles] = useState(initialProfiles);
+
+  useEffect(() => {
+    async function fetchStats() {
+      try {
+        const res = await fetch('/api/stats');
+        const data = await res.json();
+        
+        if (data.leetcode && data.gfg) {
+          setProfiles(prev => prev.map(p => {
+            if (p.platform === 'LeetCode') {
+              return {
+                ...p,
+                solved: data.leetcode.total.toString(),
+                breakdown: {
+                  easy: data.leetcode.easy,
+                  medium: data.leetcode.medium,
+                  hard: data.leetcode.hard
+                }
+              };
+            }
+            if (p.platform === 'GeeksForGeeks') {
+              return {
+                ...p,
+                solved: data.gfg.total.toString(),
+                breakdown: {
+                  easy: data.gfg.easy,
+                  medium: data.gfg.medium,
+                  hard: data.gfg.hard
+                }
+              };
+            }
+            return p;
+          }));
+        }
+      } catch (err) {
+        console.error('Failed to fetch live stats', err);
+      }
+    }
+    
+    fetchStats();
+  }, []);
+
   return (
     <motion.section 
       id="stats" 
@@ -60,7 +104,7 @@ export function CodingStatsSection() {
         >
           <h2 className="display-2">Problem <span className="make-white">Solving.</span></h2>
           <p className="mt-6 text-xl text-muted font-light max-w-2xl">
-            Consistent practice and algorithmic problem solving across major competitive programming platforms.
+            Consistent practice and algorithmic problem solving across major competitive programming platforms. (Auto-updates in real-time)
           </p>
         </motion.div>
 
@@ -77,7 +121,10 @@ export function CodingStatsSection() {
               <div className={`p-8 md:w-2/5 flex flex-col justify-between border-b md:border-b-0 md:border-r ${profile.borderColor} ${profile.bgColor}`}>
                 <div>
                   <p className={`text-xs font-bold tracking-widest uppercase mb-1 ${profile.color}`}>{profile.platform}</p>
-                  <h3 className="text-4xl font-display font-bold text-white mb-2">{profile.solved}</h3>
+                  <h3 className="text-4xl font-display font-bold text-white mb-2">
+                    {profile.solved}
+                    <span className="text-sm font-normal text-muted ml-2 tracking-wide uppercase align-middle">Live</span>
+                  </h3>
                   <p className="text-muted text-sm uppercase tracking-widest">Solved</p>
                 </div>
                 <div className="mt-12 space-y-4">
