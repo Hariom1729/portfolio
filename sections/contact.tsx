@@ -8,11 +8,12 @@ export function ContactSection() {
 
   async function onSubmit(e: React.FormEvent<HTMLFormElement>) {
     e.preventDefault();
+    const form = e.currentTarget;
     setLoading(true);
     await new Promise((r) => setTimeout(r, 900));
     setLoading(false);
     window.alert("Message queued successfully");
-    e.currentTarget.reset();
+    form.reset();
   }
 
   return (
