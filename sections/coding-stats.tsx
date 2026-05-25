@@ -4,21 +4,21 @@ import { motion } from "framer-motion";
 const profiles = [
   {
     platform: "LeetCode",
-    username: "Hariom1729", // Assuming this is his username based on Github
-    solved: "200+",
+    username: "hariom_ydv",
+    solved: "127",
     color: "text-[#FFA116]",
     borderColor: "border-[#FFA116]/20",
     bgColor: "bg-[#FFA116]/5",
-    link: "https://leetcode.com/Hariom1729" // Placeholder link
+    link: "https://leetcode.com/u/hariom_ydv/"
   },
   {
     platform: "GeeksforGeeks",
-    username: "Hariom1729",
-    solved: "240+",
+    username: "hariom_ydv",
+    solved: "218",
     color: "text-[#2f8D46]",
     borderColor: "border-[#2f8D46]/20",
     bgColor: "bg-[#2f8D46]/5",
-    link: "https://auth.geeksforgeeks.org/user/Hariom1729" // Placeholder link
+    link: "https://www.geeksforgeeks.org/profile/hariom_ydv"
   }
 ];
 
