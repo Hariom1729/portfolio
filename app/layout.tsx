@@ -8,15 +8,12 @@ const outfit = Outfit({ subsets: ["latin"], variable: "--font-outfit" });
 
 export const metadata: Metadata = {
   metadataBase: new URL("https://hariomyadav.dev"),
-  title: {
-    default: `${siteConfig.name} | ${siteConfig.role}`,
-    template: `%s | ${siteConfig.name}`
-  },
+  title: "Hariom-Yadav",
   description: siteConfig.description,
   keywords: siteConfig.keywords,
   authors: [{ name: siteConfig.name }],
   openGraph: {
-    title: `${siteConfig.name} | ${siteConfig.role}`,
+    title: "Hariom-Yadav",
     description: siteConfig.description,
     url: "https://hariomyadav.dev",
     siteName: siteConfig.name,
@@ -24,7 +21,7 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: `${siteConfig.name} | ${siteConfig.role}`,
+    title: "Hariom-Yadav",
     description: siteConfig.description
   }
 };
