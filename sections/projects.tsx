@@ -10,10 +10,12 @@ const projects = [
     demoLink: "https://axiora-khaki.vercel.app/",
     githubLink: "https://github.com/Hariom1729/Axiora"
   },
-  { name: "Customer Retention Dashboard", tech: "React.js, Node.js, Express.js, MongoDB", desc: "Built a full-stack dashboard for customer retention analysis with REST APIs, JWT auth, responsive analytics, and Excel to JSON conversion.", githubLink: "https://github.com/Hariom1729" },
+  { name: "Customer Retention Dashboard", tech: "React.js, Node.js, Express.js, MongoDB", desc: "Built a full-stack dashboard for customer retention analysis with REST APIs, JWT auth, responsive analytics, and Excel to JSON conversion.", githubLink: "https://github.com/Hariom1729/retentionX" },
   { name: "Customer Churn Prediction System", tech: "Python, Machine Learning", desc: "Built an ML model to predict churn with preprocessing, feature engineering, and actionable business insights.", githubLink: "https://github.com/Hariom1729" },
-  { name: "Smart Tourism Platform", tech: "React.js, Node.js", desc: "Tourism platform with itinerary recommendations, multilingual support, geo-location integration, and interactive dashboards.", githubLink: "https://github.com/Hariom1729" },
-  { name: "HaiiGPT Text Generation Web App", tech: "HTML5, CSS3, JavaScript", desc: "Responsive AI text generation web app with optimized frontend performance and efficient DOM manipulation.", githubLink: "https://github.com/Hariom1729" }
+  { name: "Smart Tourism Platform", tech: "React.js, Node.js", desc: "Tourism platform with itinerary recommendations, multilingual support, geo-location integration, and interactive dashboards.", 
+    demoLink:"https://jharkhand-tourism-iota.vercel.app/",
+    githubLink: "https://github.com/Hariom1729/Jharkhand-tourism" },
+  { name: "HaiiGPT Text Generation Web App", tech: "HTML5, CSS3, JavaScript", desc: "Responsive AI text generation web app with optimized frontend performance and efficient DOM manipulation.", githubLink: "https://github.com/Hariom1729/ai_studio" }
 ];
 
 export function ProjectsSection() {
