@@ -1,0 +1,79 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  color-scheme: dark;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  background-color: theme('colors.background');
+  color: theme('colors.foreground');
+  overflow-x: hidden;
+  font-family: theme('fontFamily.sans');
+}
+
+::selection {
+  background: rgba(234, 210, 171, 0.4);
+}
+
+.display-1 {
+  font-size: clamp(3rem, 8vw, 8rem);
+  line-height: 1.1;
+  font-weight: 800;
+  font-family: theme('fontFamily.display');
+  text-transform: uppercase;
+}
+
+.display-2 {
+  font-size: clamp(2.5rem, 6vw, 5rem);
+  line-height: 1.2;
+  font-weight: 700;
+  font-family: theme('fontFamily.display');
+}
+
+.display-3 {
+  font-size: clamp(2rem, 4vw, 3.5rem);
+  line-height: 1.2;
+  font-weight: 600;
+  font-family: theme('fontFamily.display');
+}
+
+.make-white {
+  color: theme('colors.accent');
+}
+
+.glass {
+  background: rgba(255, 255, 255, 0.03);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.button-circle {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 1rem 2rem;
+  border-radius: 9999px;
+  border: 1px solid theme('colors.accent');
+  color: theme('colors.accent');
+  text-transform: uppercase;
+  font-weight: 600;
+  transition: all 0.3s ease;
+  position: relative;
+  overflow: hidden;
+}
+
+.button-circle:hover {
+  background: theme('colors.accent');
+  color: theme('colors.background');
+}
