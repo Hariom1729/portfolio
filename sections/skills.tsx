@@ -111,7 +111,7 @@ export function SkillsSection() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.5, delay: i * 0.1 }}
-              className={`p-8 rounded-3xl border ${group.borderColor} bg-white/5 flex flex-col h-full transform-gpu backface-hidden`}
+              className={`p-8 rounded-3xl border ${group.borderColor} bg-white/5 flex flex-col`}
             >
               <h3 className={`text-sm font-bold tracking-widest uppercase mb-8 ${group.color}`}>
                 {group.category}
