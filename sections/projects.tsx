@@ -23,7 +23,8 @@ const projects = [
     name: "Customer Churn Prediction System", 
     tech: "Python, Machine Learning", 
     desc: "Built an ML model to predict churn with preprocessing, feature engineering, and actionable business insights.", 
-    githubLink: "https://github.com/Hariom1729",
+    demoLink: "https://churnai-pro.vercel.app/",
+    githubLink: "https://github.com/Hariom1729/churnai-pro",
     image: "/projects/churn_prediction.png"
   },
   { 
