@@ -12,7 +12,7 @@ export const siteConfig = {
   ] as string[],
   social: {
     github: "https://github.com/Hariom1729",
-    linkedin: "https://www.linkedin.com/in/hariom-yadav-896621240/",
+    linkedin: "https://www.linkedin.com/in/hariom1729/",
     email: "hariom.yadavse@gmail.com",
     phone: "+91-8604212800"
   }
