@@ -26,24 +26,30 @@ export function AboutSection() {
         </motion.div>
         
         <div className="mt-24 grid lg:grid-cols-12 gap-12 lg:gap-16 items-center">
-          <div className="relative lg:col-span-3 lg:col-start-3 md:col-span-5 md:col-start-2">
-            {/* Glowing backdrop effect */}
-            <div className="absolute -inset-4 bg-gradient-to-tr from-accent/20 via-purple-500/20 to-blue-500/20 blur-3xl opacity-40 rounded-3xl" />
+          <div className="relative lg:col-span-3 lg:col-start-3 md:col-span-5 md:col-start-2 group">
+            {/* Animated glowing aura behind the card */}
+            <div className="absolute -inset-4 bg-gradient-to-tr from-accent/40 via-purple-500/40 to-blue-500/40 blur-3xl opacity-30 group-hover:opacity-60 transition-opacity duration-700 rounded-3xl" />
             
             <motion.div
               initial={{ opacity: 0, scale: 0.9 }}
               whileInView={{ opacity: 1, scale: 1 }}
               viewport={{ once: true }}
               transition={{ duration: 0.8 }}
-              className="w-full rounded-3xl border border-white/10 overflow-hidden relative z-10"
+              className="w-full p-2 bg-white/5 backdrop-blur-md border border-white/10 rounded-[2rem] relative z-10"
             >
-               <Image 
-                 src="/hariom.jpg"
-                 alt="Hariom Yadav"
-                 width={800}
-                 height={1200}
-                 className="w-full h-auto block transition-transform duration-700 hover:scale-105"
-               />
+               <div className="relative w-full rounded-[1.5rem] overflow-hidden bg-black">
+                 <Image 
+                   src="/hariom.jpg"
+                   alt="Hariom Yadav"
+                   width={800}
+                   height={1200}
+                   className="w-full h-auto block transition-all duration-700 group-hover:scale-105 grayscale opacity-70 group-hover:grayscale-0 group-hover:opacity-100"
+                 />
+                 {/* Inner shadow/vignette to blend the cream background */}
+                 <div className="absolute inset-0 shadow-[inset_0_0_60px_rgba(0,0,0,0.8)] pointer-events-none" />
+                 {/* Bottom gradient fade for cinematic integration */}
+                 <div className="absolute inset-0 bg-gradient-to-t from-background/90 via-background/20 to-transparent pointer-events-none opacity-80" />
+               </div>
             </motion.div>
           </div>
           
