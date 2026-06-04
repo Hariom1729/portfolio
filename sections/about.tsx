@@ -26,20 +26,30 @@ export function AboutSection() {
         </motion.div>
         
         <div className="mt-20 grid md:grid-cols-2 gap-12 items-center">
-          <motion.div
-            initial={{ opacity: 0, scale: 0.9 }}
-            whileInView={{ opacity: 1, scale: 1 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.8 }}
-            className="w-full h-[500px] bg-white/5 rounded-3xl border border-white/10 flex items-center justify-center overflow-hidden relative"
-          >
-             <Image 
-               src="/hariom.jpg"
-               alt="Hariom Yadav"
-               fill
-               className="object-cover object-top transition-transform duration-700 hover:scale-105"
-             />
-          </motion.div>
+          <div className="relative">
+            {/* Glowing backdrop effect */}
+            <div className="absolute -inset-2 bg-gradient-to-tr from-accent/20 via-purple-500/20 to-blue-500/20 blur-3xl opacity-50 rounded-3xl" />
+            
+            <motion.div
+              initial={{ opacity: 0, scale: 0.9 }}
+              whileInView={{ opacity: 1, scale: 1 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.8 }}
+              className="w-full h-[500px] bg-white/5 rounded-3xl border border-white/10 flex items-center justify-center overflow-hidden relative z-10"
+            >
+               <Image 
+                 src="/hariom.jpg"
+                 alt="Hariom Yadav"
+                 fill
+                 className="object-cover object-top transition-transform duration-700 hover:scale-105 contrast-125 saturate-50"
+               />
+               
+               {/* Gradients to blend the bright background into the dark theme */}
+               <div className="absolute inset-0 bg-gradient-to-t from-background via-background/20 to-transparent opacity-90 transition-opacity duration-500 hover:opacity-70" />
+               <div className="absolute inset-0 bg-accent/20 mix-blend-overlay" />
+               <div className="absolute inset-0 shadow-[inset_0_0_100px_rgba(0,0,0,0.8)]" />
+            </motion.div>
+          </div>
           
           <motion.div
             initial={{ opacity: 0, x: 20 }}
