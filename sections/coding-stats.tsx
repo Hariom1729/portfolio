@@ -1,7 +1,7 @@
 "use client";
 import { motion } from "framer-motion";
 import { useState, useEffect } from "react";
-import { GitHubCalendar } from 'react-github-calendar';
+import { ActivityCalendar } from 'react-activity-calendar';
 
 const initialProfiles = [
   {
@@ -44,6 +44,7 @@ const initialProfiles = [
 
 export function CodingStatsSection() {
   const [profiles, setProfiles] = useState(initialProfiles);
+  const [githubData, setGithubData] = useState<any>(null);
   const [mounted, setMounted] = useState(false);
 
   useEffect(() => {
@@ -51,8 +52,17 @@ export function CodingStatsSection() {
     
     async function fetchStats() {
       try {
-        const res = await fetch('/api/stats');
+        const [res, githubRes] = await Promise.all([
+          fetch('/api/stats'),
+          fetch('/api/github?username=Hariom1729')
+        ]);
+        
         const data = await res.json();
+        const githubData = await githubRes.json();
+        
+        if (githubData.contributions) {
+          setGithubData(githubData);
+        }
         
         if (data.leetcode && data.gfg) {
           setProfiles(prev => prev.map(p => {
@@ -169,11 +179,13 @@ export function CodingStatsSection() {
           viewport={{ once: true }}
           className="mt-20 bg-white/5 rounded-3xl p-8 md:p-12 border border-white/10 flex flex-col items-center"
         >
-          <h3 className="text-2xl font-display font-medium text-white mb-10 w-full text-center">GitHub Contributions</h3>
+          <h3 className="text-2xl font-display font-medium text-white mb-10 w-full text-center">
+             GitHub Contributions
+          </h3>
           <div className="w-full overflow-x-auto pb-4 flex justify-center scrollbar-hide min-h-[150px]" style={{ color: '#fff' }}>
-            {mounted && (
-              <GitHubCalendar 
-                username="Hariom1729" 
+            {mounted && githubData?.contributions ? (
+              <ActivityCalendar 
+                data={githubData.contributions}
                 colorScheme="dark"
                 blockSize={15}
                 blockMargin={5}
@@ -181,7 +193,14 @@ export function CodingStatsSection() {
                 theme={{
                   dark: ['#161b22', '#0e4429', '#006d32', '#26a641', '#39d353']
                 }}
+                labels={{
+                  totalCount: `${githubData.total} contributions in the last year`,
+                }}
               />
+            ) : (
+              <div className="flex items-center justify-center h-[150px] text-muted text-sm">
+                Fetching secure live data...
+              </div>
             )}
           </div>
         </motion.div>
