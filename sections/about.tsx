@@ -25,8 +25,8 @@ export function AboutSection() {
           </h3>
         </motion.div>
         
-        <div className="mt-20 grid md:grid-cols-2 gap-12 items-center">
-          <div className="relative">
+        <div className="mt-24 grid lg:grid-cols-12 gap-12 lg:gap-16 items-center">
+          <div className="relative lg:col-span-4 lg:col-start-2">
             {/* Glowing backdrop effect */}
             <div className="absolute -inset-4 bg-gradient-to-tr from-accent/20 via-purple-500/20 to-blue-500/20 blur-3xl opacity-40 rounded-3xl" />
             
@@ -52,8 +52,10 @@ export function AboutSection() {
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.8, delay: 0.2 }}
+            className="lg:col-span-6"
           >
-            <p className="text-xl text-muted leading-relaxed font-light mb-8">
+            <h4 className="text-accent uppercase tracking-widest text-sm font-bold mb-6">About Me</h4>
+            <p className="text-xl md:text-2xl text-white/90 leading-relaxed font-light mb-10">
               I am a Full Stack Developer skilled in React.js, Node.js, Express.js, MongoDB, JavaScript, and TypeScript. I build scalable web applications, REST APIs, authentication systems, and modern responsive interfaces. I also work with AI/ML technologies and cloud deployment.
             </p>
             <div className="flex flex-wrap gap-4">
