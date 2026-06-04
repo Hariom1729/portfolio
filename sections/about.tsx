@@ -26,7 +26,7 @@ export function AboutSection() {
         </motion.div>
         
         <div className="mt-24 grid lg:grid-cols-12 gap-12 lg:gap-16 items-center">
-          <div className="relative lg:col-span-4 lg:col-start-2">
+          <div className="relative lg:col-span-3 lg:col-start-3 md:col-span-5 md:col-start-2">
             {/* Glowing backdrop effect */}
             <div className="absolute -inset-4 bg-gradient-to-tr from-accent/20 via-purple-500/20 to-blue-500/20 blur-3xl opacity-40 rounded-3xl" />
             
@@ -52,7 +52,7 @@ export function AboutSection() {
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.8, delay: 0.2 }}
-            className="lg:col-span-6"
+            className="lg:col-span-6 lg:col-start-7 md:col-span-6"
           >
             <h4 className="text-accent uppercase tracking-widest text-sm font-bold mb-6">About Me</h4>
             <p className="text-xl md:text-2xl text-white/90 leading-relaxed font-light mb-10">
