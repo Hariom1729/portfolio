@@ -1,5 +1,6 @@
 "use client";
 import { motion } from "framer-motion";
+import Image from "next/image";
 
 export function AboutSection() {
   return (
@@ -30,10 +31,14 @@ export function AboutSection() {
             whileInView={{ opacity: 1, scale: 1 }}
             viewport={{ once: true }}
             transition={{ duration: 0.8 }}
-            className="w-full h-80 bg-white/5 rounded-2xl border border-white/10 flex items-center justify-center overflow-hidden"
+            className="w-full h-[500px] bg-white/5 rounded-3xl border border-white/10 flex items-center justify-center overflow-hidden relative"
           >
-             {/* Image placeholder or cool abstract art */}
-             <div className="text-muted/30 font-light tracking-widest uppercase">Creative Developer</div>
+             <Image 
+               src="/hariom.jpg"
+               alt="Hariom Yadav"
+               fill
+               className="object-cover object-top transition-transform duration-700 hover:scale-105"
+             />
           </motion.div>
           
           <motion.div
